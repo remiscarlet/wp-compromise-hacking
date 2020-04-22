@@ -8,11 +8,16 @@ $lambda_2 = function($str) {
 };
 
 $strings = [
-    "S8rMShT0/KL6lJz89Pz0mtPtAQA=",
-    "S8zPqhTUnKzEuvqUzMyM8tPHAA==",
+    "09coyhTk/KLynW1NPSK6koUdEtPHAA==",
+    "S87PKhT0nNK9EtqSxItSpJrSjRL6ktPoAQA=",
+    "09cozhTixJzU0s0NTT0qvIzVHtPRBwA=",
+    "S87PKhT0nNK9EtqSxItSpJrSjRr8jtPNAQA=",
+    "",
+    "",
 ];
 
+echo "=========================\n";
 foreach ($strings as $string) {
-    var_dump($lambda_2($string));
+    var_dump([$string=>$lambda_2($string)]);
 }
 
